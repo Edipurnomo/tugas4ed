@@ -52,18 +52,17 @@ public class UserController {
     }
 
     @PutMapping("/update")
-   public Map Updateuser(@RequestBody User body) {
-       // User result = repository.findById(i);
-        Map<String, Object> result1 = new HashMap<>();
-        if (userServices.updateData(body)) {
-            result1.put("succes", true);
-            result1.put("message", "berhasil");
-        } else {
-            result1.put("succes", false);
-            result1.put("message", "gagal");
+    Map<String, Object> UpdateUser(@RequestBody User body){
+        Map<String, Object> result = new HashMap<>();
+        if (userServices.updateUser(body)) {
+            result.put("success", true);
+            result.put("mes", "berhasil");
+        }else {
+            result.put("success", false);
+            result.put("mes", "gagal");
         }
-        return result1;
- }
+        return result;
+    }
 
 
 }
