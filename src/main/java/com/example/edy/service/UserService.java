@@ -7,7 +7,9 @@ import com.example.edy.repository.AddressRepository;
 import com.example.edy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -87,6 +89,14 @@ public class UserService {
 //        }
 //        return resultMap;
 //    }
+
+    public List<User> getAllUser(Integer pageNo, String sortKey){
+        int noOfRecord = 4;
+        Pageable page = PageRequest.of(pageNo, noOfRecord, Sort.by(sortKey));
+        Page <User> pagedResult = userRepository.findAll(page);
+        return pagedResult.getContent();
+    }
+
 public boolean updateUser(User body) {
     User userResult = userRepository.findById(body.getId());
 

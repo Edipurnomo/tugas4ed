@@ -20,16 +20,23 @@ public class UserController {
     @Autowired
     UserService userServices;
 
-    @GetMapping("")
-    List<User> geAllUser() {
-        return userServices.getAllUser();
-    }
+//    @GetMapping("")
+//    List<User> geAllUser() {
+//        return userServices.getAllUser();
+//    }
 
 //    @GetMapping("getByUsername")
 //    User findByUsername(@RequestParam String username) {
 //        User result = service.getAllUser(username);
 //        return result;
 //    }
+
+    @GetMapping
+    public List<User> getAllUser(@RequestParam(value ="pageNo", defaultValue = "0") Integer pageNo,
+                                 @RequestParam(value = "sortKey", defaultValue = "name") String sortKey)
+    {
+        return userServices.getAllUser(pageNo, sortKey);
+    }
 
     @PostMapping("/insert")
     public Map<String, Object> insertUser(@RequestBody User body) {
