@@ -45,6 +45,11 @@ public class UserController {
     }
 
 
+    @GetMapping("/ByAddress")
+    public List<User>getUsersByAddress(
+            @RequestParam(required = false)String search,
+            @RequestParam(required = false)String type )
+    { return userServices.getAllUserByAddress(search,type); }
 
 
     @DeleteMapping("/delete")

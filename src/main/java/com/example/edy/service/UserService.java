@@ -70,25 +70,6 @@ public class UserService {
         return userRepository.findByUsernameContaining(search, pageable);
     }
 
-//    public Map updateUser(User body) {
-//        User userResult = userRepository.findById(body.getId());
-//        Map<String, Object> resultMap = new HashMap<>();
-//        if (userResult != null) {
-//            try {
-////                userResult.setAddress(userResult.getAddress());
-//                userRepository.save(body);
-//                resultMap.put("success", true);
-//                resultMap.put("message", "update user sukses");
-//            } catch (Exception e) {
-//                resultMap.put("success", false);
-//                resultMap.put("message", "update user gagal");
-//            }
-//        } else {
-//            resultMap.put("success", false);
-//            resultMap.put("message", "update user gagal");
-//        }
-//        return resultMap;
-//    }
 
     public List<User> getAllUser(Integer pageNo, String sortKey){
         int noOfRecord = 4;
@@ -113,27 +94,6 @@ public boolean updateUser(User body) {
     }
 
 }
-
-//
-//
-//    public boolean deleteByUserId(int userId) {
-//        User result = userRepository.findById(userId);
-//        Map<String, Object> resultMap = new HashMap<>();
-//        if (result != null) {
-//            try {
-//                userRepository.deleteById(userId);
-//                resultMap.put("success", true);
-//                resultMap.put("message", "user berhasil terhapus");
-//            } catch (Exception e) {
-//                resultMap.put("success", false);
-//                resultMap.put("record", "user gagal terhapus: " + e.getMessage());
-//            }
-//        } else {
-//            resultMap.put("success", false);
-//            resultMap.put("record", "address gagal terhapus");
-//        }
-//        return resultMap;
-//    }
 
 
     public boolean deleteByUserId(int userId) {
